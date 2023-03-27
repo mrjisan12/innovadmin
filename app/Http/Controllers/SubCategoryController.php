@@ -2,20 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class SubCategoryController extends Controller
 {
+    private $categories, $subCategory, $subCategories;
+
     public function index()
     {
-        return view('admin.sub-category.index');
+        $this->categories = Category::all();
+        return view('admin.sub-category.index', ['categories' => $this->categories]);
     }
     public function create(Request $request)
     {
-        return $request->all();
+        SubCategory::newSubCategory($request);
+        return back()->with('message', 'Sub Category info Create Successfully');
     }
     public function manage()
     {
-        return view('admin.sub-category.manage');
+        $this->subCategories = SubCategory::all();
+        return view('admin.sub-category.manage', ['sub_categories' => $this->subCategories]);
+    }
+    public function edit($id)
+    {
+        $this->subCategory = SubCategory::find($id);
+        $this->categories = Category::all();
+        return view('admin.sub-category.edit', [
+            'sub_category' => $this->subCategory,
+            'categories' => $this->categories,
+
+        ]);
+    }
+
+    public function update(Request $request , $id)
+    {
+        SubCategory::updateSubCategory($request, $id);
+        return redirect('/sub-category/manage')->with('message', 'SubCategory info Update Successfully');
+    }
+    public function delete($id)
+    {
+        SubCategory::deleteSubCategory($id);
+        return back()->with('message', 'SubCategory info Delete Successfully');
     }
 }

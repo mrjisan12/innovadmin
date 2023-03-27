@@ -9,12 +9,13 @@ class Category extends Model
 {
     use HasFactory;
 
-    private static $category, $image, $imageURL, $imageName, $directory;
+    private static $category, $image,$imageExtension, $imageURL, $imageName, $directory;
 
     public static function getImageUrl($request)
     {
         self::$image = $request->file('image');
-        self::$imageName = self::$image->getClientOriginalName();
+        self::$imageExtension = self::$image->getClientOriginalExtension(); //png
+        self::$imageName = time().'.'.self::$imageExtension; // 23234627384.png
         self::$directory = 'category-images/';
         self::$image->move(self::$directory, self::$imageName);
         self::$imageURL = self::$directory.self::$imageName;
@@ -29,4 +30,35 @@ class Category extends Model
         self::$category->image             = self::getImageUrl($request);
         self::$category->save();
     }
+    public static function updateCategory($request, $id)
+    {
+        self::$category = Category::find($id);
+        if ($request->file('image')) {
+            if (file_exists(self::$category->image))
+            {
+                unlink(self::$category->image);
+            }
+            self::$imageURL = self::getImageUrl($request);
+        }
+        else
+        {
+            self::$imageURL = self::$category->image;
+        }
+        self::$category->name              = $request->name;
+        self::$category->description       = $request->description;
+        self::$category->image             = self::$imageURL;
+        self::$category->save();
+
+    }
+
+    public static function deleteCategory($id)
+    {
+        self::$category = Category::find($id);
+        if (file_exists(self::$category->image))
+        {
+            unlink(self::$category->image);
+        }
+        self::$category->delete();
+    }
+
 }
