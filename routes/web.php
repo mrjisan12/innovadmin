@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+Use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +26,12 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/category/add', [CategoryController::class, 'index'])->name('category.add');
+    Route::post('/category/create', [CategoryController::class, 'create'])->name('category.create');
+    Route::get('/category/manage', [CategoryController::class, 'manage'])->name('category.manage');
+
+    Route::get('/sub-category/add', [SubCategoryController::class, 'index'])->name('sub-category.add');
+    Route::post('/sub-category/create', [SubCategoryController::class, 'create'])->name('sub-category.create');
+    Route::get('/sub-category/manage', [SubCategoryController::class, 'manage'])->name('sub-category.manage');
 });
