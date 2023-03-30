@@ -19,9 +19,10 @@
                                         <thead>
                                         <tr>
                                             <th>SL NO</th>
-                                            <th>Name</th>
-                                            <th>Category Description</th>
-                                            <th>Age</th>
+                                            <th>Category Name</th>
+                                            <th>Sub Category Name</th>
+                                            <th>Description</th>
+                                            <th>Image</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -29,14 +30,24 @@
 
 
                                         <tbody>
+                                        @foreach($sub_categories as $sub_category)
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$sub_category->category->name}}</td>
+                                            <td>{{$sub_category->name}}</td>
+                                            <td>{{$sub_category->description}}</td>
+                                            <td><img src="{{asset($sub_category->image)}}" alt="" width="70" height="60"></td>
+                                            <td>{{$sub_category->status}}</td>
+                                            <td>
+                                                <a href="{{route('sub-category.edit',['id' => $sub_category->id])}}" class="btn btn-success btn-sm">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a href="{{route('sub-category.delete', ['id' => $sub_category->id])}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you Sure to Delete This Item?');">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </td>
                                         </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>

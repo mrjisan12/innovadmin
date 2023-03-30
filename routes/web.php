@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 Use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,14 @@ Route::middleware([
     Route::get('/sub-category/edit/{id}', [SubCategoryController::class, 'edit'])->name('sub-category.edit');
     Route::post('/sub-category/update/{id}', [SubCategoryController::class, 'update'])->name('sub-category.update');
     Route::get('/sub-category/delete/{id}', [SubCategoryController::class, 'delete'])->name('sub-category.delete');
+
+
+    Route::get('/gallery/add', [GalleryController::class, 'index'])->name('gallery.add');
+    Route::post('/gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
+    Route::get('/gallery/manage', [GalleryController::class, 'manage'])->name('gallery.manage');
+    Route::get('/gallery/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit');
+    Route::post('/gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
+    Route::get('/gallery/delete/{id}', [GalleryController::class, 'delete'])->name('gallery.delete');
+
+
 });

@@ -62,4 +62,9 @@ class SubCategory extends Model
         }
         self::$subCategory->delete();
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
