@@ -21,7 +21,7 @@
                                             <th>SL NO</th>
                                             <th>Name</th>
                                             <th>Category Description</th>
-                                            <th>Age</th>
+                                            <th>Image</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>

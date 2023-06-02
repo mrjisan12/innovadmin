@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+
 use Illuminate\Http\Request;
 use App\Models\Gallery;
 
 class GalleryController extends Controller
 {
-    private $categories, $gallery, $galleries;
+    private  $gallery, $galleries;
 
     public function index()
     {
-        $this->categories = Category::all();
+        $this->galleries = Gallery::all();
         return view('admin.gallery.index', ['galleries' => $this->galleries]);
     }
     public function create(Request $request)
@@ -40,4 +40,5 @@ class GalleryController extends Controller
         Gallery::deleteGallery($id);
         return back()->with('message', 'Gallery Info Delete Successfully');
     }
+
 }

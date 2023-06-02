@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div class="form-group row mb-4">
-                            <label for="horizontal-password-input" class="col-sm-3 col-form-label">Category Image</label>
+                            <label for="horizontal-password-input" class="col-sm-3 col-form-label">Image</label>
                             <div class="col-sm-9">
                                 <input type="file" class="form-control-file" name="image" id="horizontal-password-input">
                             </div>

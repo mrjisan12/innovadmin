@@ -20,7 +20,7 @@
                         <div class="form-group row mb-4">
                             <label for="horizontal-email-input" class="col-sm-3 col-form-label">Description</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="description" id="horizontal-email-input">{{$gallery->description}}</textarea>
+                                <textarea class="form-control" name="description" id="horizontal-description-input">{{$gallery->description}}</textarea>
                             </div>
                         </div>
                         <div class="form-group row mb-4">
@@ -32,7 +32,7 @@
                         <div class="form-group row mb-4">
                             <label for="horizontal-password-input" class="col-sm-3 col-form-label">Gallery Image</label>
                             <div class="col-sm-9">
-                                <input type="file" name="image" class="form-control-file" id="horizontal-password-input">
+                                <input type="file" name="image" class="form-control-file" id="horizontal-image-input">
                                 <img class="mt-2" src="{{asset($gallery->image)}}" alt="" height="120" width="130"/>
                             </div>
                         </div>
