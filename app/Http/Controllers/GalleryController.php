@@ -15,6 +15,11 @@ class GalleryController extends Controller
         $this->galleries = Gallery::all();
         return view('admin.gallery.index', ['galleries' => $this->galleries]);
     }
+    public function view($id)
+    {
+        $this->gallery = Gallery::find($id);
+        return view('admin.gallery.view', ['gallery' => $this->gallery]);
+    }
     public function create(Request $request)
     {
         Gallery::newGallery($request);

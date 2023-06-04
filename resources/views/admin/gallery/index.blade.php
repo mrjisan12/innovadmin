@@ -18,9 +18,9 @@
                             </div>
                         </div>
                         <div class="form-group row mb-4">
-                            <label for="horizontal-email-input" class="col-sm-3 col-form-label">Description</label>
+                            <label class="col-sm-3 col-form-label">Description</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="description" id="horizontal-email-input"></textarea>
+                                <textarea class="form-control" name="description"></textarea>
                             </div>
                         </div>
                         <div class="form-group row mb-4">

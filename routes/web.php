@@ -52,6 +52,7 @@ Route::middleware([
     Route::get('/gallery/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit');
     Route::post('/gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
     Route::get('/gallery/delete/{id}', [GalleryController::class, 'delete'])->name('gallery.delete');
+    Route::get('/gallery/view/{id}', [GalleryController::class, 'view'])->name('gallery.view');
 
 
 });

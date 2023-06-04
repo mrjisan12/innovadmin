@@ -6,9 +6,15 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">ALl Gallery Information</h4>
+                    <h4 class="card-title mb-4 text-center">ALL Gallery Information</h4>
+                    <br>
+                    <br>
+                    <div>
+                        <a href="{{route('gallery.add')}}" class="btn btn-primary w-md">Add More</a>
+                    </div>
 
 
+                    </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
@@ -37,10 +43,13 @@
                                                 <td>{{$gallery->position}}</td>
                                                 <td><img src="{{asset($gallery->image)}}" alt="" height="60" width="60"/></td>
                                                 <td>
-                                                    <a href="{{route('gallery.edit',['id' => $gallery->id])}}" class="btn btn-success btn-sm">
+                                                    <a href="{{route('gallery.edit',['id' => $gallery->id])}}" class="btn btn-success btn-lg">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="{{route('gallery.delete', ['id' => $gallery->id])}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you Sure to Delete This Item?');">
+                                                    <a href="{{route('gallery.view', ['id' => $gallery->id])}}" class="btn btn-info btn-lg">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                    <a href="{{route('gallery.delete', ['id' => $gallery->id])}}" class="btn btn-danger btn-lg" onclick="return confirm('Are you Sure to Delete This Item?');">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </td>

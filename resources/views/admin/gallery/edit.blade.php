@@ -9,7 +9,7 @@
                     <h4 class="card-title mb-4">Edit Gallery Form</h4>
 
                     <h4 class="text-success text-center">{{session('message')}}</h4>
-                    <form action="{{route('category.update', ['id' => $gallery->id])}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('gallery.update', ['id' => $gallery->id])}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row mb-4">
                             <label for="horizontal-caption-input" class="col-sm-3 col-form-label">Caption</label>

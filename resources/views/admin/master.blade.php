@@ -446,15 +446,15 @@
                     </li>
 
                     <li>
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <a href="{{route('gallery.manage')}}" class=" waves-effect">
                             <i class="bx bx-store"></i>
-                            <span>Gallery Module</span>
+                            <span>Manage Gallery</span>
                         </a>
-                        <ul class="sub-menu" aria-expanded="false">
+                        {{--<ul class="sub-menu" aria-expanded="false">
                             <li><a href="{{route('gallery.add')}}">Add Gallery </a></li>
                             <li><a href="{{route('gallery.manage')}}">Manage Gallery</a></li>
 
-                        </ul>
+                        </ul>--}}
                     </li>
 
 
